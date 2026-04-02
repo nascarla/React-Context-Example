@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useContext } from "react";
 import { ContactsSection } from "./components/ContactsSection.jsx";
 import { ThemeArea, ThemeContext } from "./context/ThemeContext.js";
-import { ThemeSwitcher } from "./context/ThemeSwitcher.js";
+import { ThemeSwitcher } from "./components/ThemeSwitcher.js";
 
 const family = [
   {

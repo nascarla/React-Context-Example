@@ -9,5 +9,5 @@ export const ThemeSwitcher = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
-  return <button onClick={toggleTheme}>Theme is currently: {theme}</button>;
+  return <button onClick={toggleTheme} className={`btn-switcher theme-${theme}`}>Theme is currently: {theme}</button>;
 };

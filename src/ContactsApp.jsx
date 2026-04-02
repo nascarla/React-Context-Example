@@ -1,37 +1,43 @@
-import './App.css';
-import React from 'react';
-import { ContactsSection } from './components/ContactsSection';
-import { ThemeContext } from './ThemeContext';
+import "./App.css";
+import React, { useContext } from "react";
+import { ContactsSection } from "./components/ContactsSection.jsx";
+import { ThemeArea, ThemeContext } from "./context/ThemeContext.js";
+import { ThemeSwitcher } from "./context/ThemeSwitcher.js";
 
 const family = [
   {
-    name: 'Finn the Human'
+    name: "Finn the Human",
   },
   {
-    name: 'Jake the Dog'
-  }
+    name: "Jake the Dog",
+  },
 ];
 
 const friends = [
   {
-    name: 'Marceline'
+    name: "Marceline",
   },
   {
-    name: 'Princess Bubblegum'
-  }
+    name: "Princess Bubblegum",
+  },
 ];
 
 const App = () => {
-  const theme = 'light';
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <ThemeContext.Provider value="light">
-      <div>
-        <h1>Contacts</h1>
+    <div className={`theme-${theme}`}>
+      <h1>Contacts</h1>
+
+      <ThemeSwitcher />
+      <ThemeArea initialTheme="light">
         <ContactsSection contacts={family} name="Family" />
+      </ThemeArea>
+
+      <ThemeArea initialTheme="dark">
         <ContactsSection contacts={friends} name="Friends" />
-      </div>
-    </ThemeContext.Provider>
+      </ThemeArea>
+    </div>
   );
 };
 

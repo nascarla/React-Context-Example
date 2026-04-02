@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import { ContactsSection } from './components/ContactsSection';
+import { ThemeContext } from './ThemeContext';
 
 const family = [
   {
@@ -24,11 +25,13 @@ const App = () => {
   const theme = 'light';
 
   return (
-    <div>
-      <h1>Contacts</h1>
-      <ContactsSection contacts={family} name="Family" theme={theme} />
-      <ContactsSection contacts={friends} name="Friends" theme={theme} />
-    </div>
+    <ThemeContext.Provider value="light">
+      <div>
+        <h1>Contacts</h1>
+        <ContactsSection contacts={family} name="Family" />
+        <ContactsSection contacts={friends} name="Friends" />
+      </div>
+    </ThemeContext.Provider>
   );
 };
 
